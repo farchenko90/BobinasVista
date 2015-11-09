@@ -595,7 +595,7 @@ font-weight: 700;}
                                         <div class="col-xs-6 col-sm-6">
                                           <div class="form-group">
                                             <label >Fecha de ingreso</label>
-                                            <input type="text" class="form-control" id="fechaact" name="fecha_user" placeholder="" >
+                                            <input type="text" class="form-control" id="fechaact" name="fecha_user" placeholder="" readonly="true">
                                           </div>
                                         </div>
                                         
@@ -610,6 +610,13 @@ font-weight: 700;}
                                                 <label >Ciudad <labe style="color: red"> *</labe></label>
                                                 <input type="text" class="form-control" id="" name="ciu_user" placeholder="" required>
                                             </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6">
+                                          <div class="form-group">
+                                            <label >correo <labe style="color: red"> *</labe></label>
+                                            <span id="emailError"></span>
+                                            <input type="email"  class="form-control ns" id="" name="emai_user" placeholder="email"  required onkeyup="emailCheck(this.value)">
+                                          </div>
                                         </div>
                                         <div class="col-xs-6 col-sm-6">
                                             <div class="form-group">

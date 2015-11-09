@@ -11,7 +11,8 @@ function jsonregistrarclientetrans(){
         "Direccion":        document.getElementsByName("dire_user")[0].value,
         "Apellido":         document.getElementsByName("ape_user")[0].value,
         "Fecha_ingre":      document.getElementsByName("fecha_user")[0].value,
-        "Ciudad":           document.getElementsByName("ciu_user")[0].value
+        "Ciudad":           document.getElementsByName("ciu_user")[0].value,
+        "Email":            document.getElementsByName("emai_user")[0].value
     });
 }
 /**
@@ -27,7 +28,8 @@ function registrarclientetrans(){
    if(document.getElementsByName("nomb_user")[0].value=="" || document.getElementsByName("ced_user")[0].value=="" || 
       document.getElementsByName("tele_user")[0].value=="" || document.getElementsByName("dire_user")[0].value=="" ||
       document.getElementsByName("ape_user")[0].value=="" || document.getElementsByName("fecha_user")[0].value=="" || 
-      document.getElementsByName("marca")[0].value=="" || document.getElementsByName("nplaca")[0].value==""){
+      document.getElementsByName("marca")[0].value=="" || document.getElementsByName("nplaca")[0].value=="" || 
+      document.getElementsByName("emai_user")[0].value==""){
         toastr.info('Los campos del cliente son obligatorios y la marca del transformador');
     }else{
         if(validate_fechaMayorQue(fentrega1,finicial) && validate_fechaMayorQue(fentrega1,ffinal)){
@@ -70,7 +72,8 @@ function jsonregistrarcliente(){
         "Direccion":        document.getElementsByName("dire_user")[0].value,
         "Ciudad":           document.getElementsByName("ciu_user")[0].value,
         "Apellido":         document.getElementsByName("ape_user")[0].value,
-        "Fecha_ingre":      document.getElementsByName("fecha_user")[0].value
+        "Fecha_ingre":      document.getElementsByName("fecha_user")[0].value,
+        "Email":            document.getElementsByName("correo_user")[0].value
     });
 }
 
@@ -102,7 +105,8 @@ function registrarcliente(){
     if (document.getElementsByName('nomb_user')[0].value==""||document.getElementsByName('ape_user')[0].value=="" ||
         document.getElementsByName('dire_user')[0].value=="" || document.getElementsByName('tele_user')[0].value=="" || 
         document.getElementsByName('ced_user')[0].value=="" || document.getElementsByName('ciu_user')[0].value=="" ||
-        document.getElementsByName('numserie')[0].value=="" || document.getElementsByName('marca')[0].value=="") {
+        document.getElementsByName('numserie')[0].value=="" || document.getElementsByName('marca')[0].value=="" || 
+        document.getElementsByName("correo_user")[0].value=="") {
         toastr.info('Los campos del cliente son obligatorios y la serie del motor');
     }else{
         

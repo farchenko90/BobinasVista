@@ -328,6 +328,38 @@ font-weight: 700;}
             var buscar = document.getElementsByName('buscar')[0].value;
             busquedaAvanzada(buscar);
         }
+
+        function emailCheck(inputvalue){    
+            var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+            var span=document.getElementById("emailError");
+            if(pattern.test(inputvalue))
+            {         
+                span.innerHTML="correo valido";    
+                var myRequest = new XMLHttpRequest();
+                var response = myRequest.reponseText;
+                myRequest.onreadystatechange = function()
+                {
+                    if(myRequest.readyState == 4 && myRequest.status == 200)
+                    {
+                        if(response.test(inputvalue))
+                        {
+                            span.innerHTML="already in use";
+                        }
+                        else
+                        {
+                            span.innerHTML="valid";
+                        }
+                    }
+
+                    myRequest.open("POST", "email.php", true);
+                    myRequest.send();
+                }
+            }
+            else
+            {   
+                span.innerHTML="correo invalido"; 
+            }
+          }
         
         function llevar(){
             $('#agrega_motor').modal(); 
@@ -553,16 +585,25 @@ font-weight: 700;}
                                         <div class="col-xs-6 col-sm-6">
                                           <div class="form-group">
                                             <label >N.I <labe style="color: red"> *</labe></label>
-                                            <input type="text" maxlength="10" size="10" class="form-control ns" id="" name="ced_user" placeholder=""  required onKeyPress="return soloNumeros(event)">
+                                            <input type="text" maxlength="10" size="10" class="form-control ns" id="" name="ced_user" placeholder="cedula"  required onKeyPress="return soloNumeros(event)">
                                           </div>
                                         </div>
 
                                         <div class="col-xs-6 col-sm-6">
                                           <div class="form-group">
                                             <label >Ciudad <labe style="color: red"> *</labe></label>
-                                            <input type="text"  class="form-control ns" id="" name="ciu_user" placeholder=""  required >
+                                            <input type="text"  class="form-control ns" id="" name="ciu_user" placeholder="ciudad"  required >
                                           </div>
                                         </div>
+
+                                        <div class="col-xs-6 col-sm-6">
+                                          <div class="form-group">
+                                            <label >correo <labe style="color: red"> *</labe></label>
+                                            <span id="emailError"></span>
+                                            <input type="email"  class="form-control ns" id="" name="correo_user" placeholder="email"  required onkeyup="emailCheck(this.value)">
+                                          </div>
+                                        </div>
+
                                         <div class="col-xs-6 col-sm-6">
                                           <div class="form-group">
                                             <input type="hidden"  class="form-control ns" id="" name="idoculto" placeholder=""  required >

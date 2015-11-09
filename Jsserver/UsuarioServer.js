@@ -29,7 +29,7 @@ function login(){
                 if(data == 1){
                      location.href = "menu_admin.php";
                 }else{
-                    alert("Error usuario o contraseña incorrecta");
+                    toastr.error("Error Usuario O Contraseña Incorrecta");
                 }
             },
             error: function (jqXHR, status) {

@@ -11,6 +11,7 @@ if(!isset($_SESSION['id'])){
     <title>Bobinados del Valle</title>
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/toastr.css">
 
     <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/toastr.min.js"></script>
@@ -20,7 +21,9 @@ if(!isset($_SESSION['id'])){
 
     <script type="text/javascript">
 
-    
+    function recordar(){
+      location.href = ruta+"recordarcontrasena.php";
+    }
 
     </script>
 	
@@ -62,6 +65,7 @@ if(!isset($_SESSION['id'])){
             </div> <br>     
 
             <button type="submit" class="btn btn-primary btn-lg" name="sesion" onclick="javascript:function(){document.formulario.submit();}">Entrar</button>
+            <a href="javascript:recordar()"><h5 style="margin-left: 30%;margin-top: -5%;color: blue;">¿Olvidaste tu contraseña?</h5></a>
           </form>
       </div>
     </div>
